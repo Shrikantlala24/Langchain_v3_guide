@@ -1,7 +1,7 @@
 # Responses
 
 ## Q1. What is deep learning
-#### response
+#### response (API-usage)
 **Deep Learning: A Branch of Machine Learning**
 
 Deep learning is a subfield of machine learning that involves the use of artificial neural networks (ANNs) to analyze and interpret data. These neural networks are composed of layers of interconnected nodes or "neurons" that process and transform inputs into meaningful outputs.
@@ -37,3 +37,5 @@ Suppose we want to build a deep learning model to classify images of dogs and ca
 1. **Collect a dataset**: Gather a large collection of images of dogs and cats.
 2. **Preprocess the data**: Resize and normalize the images to prepare them for training.
 3. **Train the model**: Use a convolutional neural network (CNN
+
+#### response (Local)

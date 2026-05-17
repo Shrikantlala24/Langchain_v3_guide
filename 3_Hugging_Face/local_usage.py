@@ -1,15 +1,15 @@
-from langchain_huggingface import ChatHuggingFace ,HuggingFacePipeline
 from dotenv import load_dotenv
+from langchain_huggingface import ChatHuggingFace, HuggingFacePipeline
 
-load_dotenv()  # Load environment variables from .env file
+load_dotenv()
 
-llm_info = HuggingFacePipeline(
-    repo_id='meta-llama/Llama-3.1-8B-Instruct',
-    task='text_generation',
-    model_kwargs={"temperature": 1, "max_length": 1000}
+llm_info = HuggingFacePipeline.from_model_id(
+    model_id="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+    task="text-generation",
+    pipeline_kwargs={"max_new_tokens": 200}
 )
 
 model = ChatHuggingFace(llm=llm_info)
 
-response = model.invoke('What is Deep learning?')
+response = model.invoke("What is Deep learning?")
 print(response.content)
