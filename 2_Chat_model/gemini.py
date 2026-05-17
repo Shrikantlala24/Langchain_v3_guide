@@ -1,22 +1,14 @@
-import streamlit as st
+import pytorch as torch
 
-from langchain_google_genai.chat_models import ChatGoogleGenerativeAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
-import os
 
-load_dotenv()
+load_dotenv()  # Load environment variables from .env file
 
-def response():
-    model = ChatGoogleGenerativeAI(model="gemini-1.5-pro", temperature=0.7)
+chat = ChatGoogleGenerativeAI(
+    model='gemini-2.5-flash',
+)
 
-    response = model("what are components of Machine learning. tell me in short under 100 words.")
+response = chat.invoke('what is Machine Learning?')
 
-    return response
-
-perm_response = response()
-print(perm_response)
-
-
-
-if st.button("Generate Response"):
-    st.write(perm_response)
+print(response.content)
