@@ -1,7 +1,6 @@
-# from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_huggingface import ChatHuggingFace ,HuggingFaceEndpoint
-
+from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
+from pprint import pprint
 
 from typing import TypedDict, Annotated, List, Dict
 
@@ -20,12 +19,12 @@ class Linkedin_data(TypedDict):
     summary : Annotated[str,'enter the summary']
 
 model = ChatGoogleGenerativeAI(
-    model = 'gemini-2.0-flash',
+    model = 'gemini-3.5-flash',
 )
 
 structured_model = model.with_structured_output(Linkedin_data)
 
-structured_model.invoke("""
+response = structured_model.invoke("""
 My name is Aarav Mehta and I am a Backend Developer focused on cloud-native applications and API development. 
 I primarily work with Java, Spring Boot, PostgreSQL, Docker, and Kubernetes.
 
@@ -37,3 +36,21 @@ I enjoy designing scalable architectures and optimizing backend performance for 
 Email: aarav.mehta.dev@gmail.com
 Website: https://aaravmehta.tech
 """)
+
+pprint(response)
+
+# This is the reponse I got
+
+# {'Name': 'Aarav Mehta',
+#  'Website': 'https://aaravmehta.tech',
+#  'mail_id': 'aarav.mehta.dev@gmail.com',
+#  'projects': {'CloudCart': 'An e-commerce backend system that handles '
+#                            'authentication, payment integration, and order '
+#                            'management.',
+#               'DevTrack': 'A project monitoring dashboard that visualizes '
+#                           'deployment metrics and CI/CD pipelines in real '
+#                           'time.'},
+#  'summary': 'Backend Developer focused on cloud-native applications and API '
+#             'development. I enjoy designing scalable architectures and '
+#             'optimizing backend performance for high-traffic systems.',
+#  'tech_stack': ['Java', 'Spring Boot', 'PostgreSQL', 'Docker', 'Kubernetes']}
