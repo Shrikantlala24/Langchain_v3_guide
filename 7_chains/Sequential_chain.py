@@ -18,8 +18,6 @@ import pprint
 
 load_dotenv()
 
-
-
 prompt1 = PromptTemplate(
     input_variables=['topic'],
     template=' Generate a detailed report on {topic}'
@@ -51,61 +49,4 @@ response = seq_chain.invoke('attention is all you need- research paper')
 print(response)
 
 seq_chain.get_graph().print_ascii()
-# Here is a three-line summary of the report:
-
-# The "Attention Is All You Need" paper, presented by Vaswani et al. in 2017, introduced the Transformer architecture, which revolutionized the field of machine learning by discarding
-# recurrence and convolutions in favor of self-attention mechanisms. This led to the creation of Large Language Models (LLMs) such as BERT, GPT, and LLaMA, and has since transcended
-# Natural Language Processing (NLP) into computer vision, audio, and reinforcement learning. The Transformer's ability to parallelize computations and draw global dependencies between
-# input and output tokens enabled the training of models on web-scale data, paving the way for the modern era of Generative Artificial Intelligence.
-
-#       +-------------+      
-#       | PromptInput |      
-#       +-------------+      
-#              *             
-#              *             
-#              *             
-#     +----------------+     
-#     | PromptTemplate |     
-#     +----------------+     
-#              *             
-#              *             
-#              *             
-# +------------------------+ 
-# | ChatGoogleGenerativeAI | 
-# +------------------------+ 
-#              *             
-#              *             
-#              *             
-#     +-----------------+    
-#     | StrOutputParser |    
-#     +-----------------+    
-#              *             
-#              *             
-#              *             
-# +-----------------------+  
-# | StrOutputParserOutput |  
-# +-----------------------+  
-#              *             
-#              *             
-#              *             
-#     +----------------+     
-#     | PromptTemplate |     
-#     +----------------+     
-#              *             
-#              *             
-#              *             
-#     +-----------------+    
-#     | ChatHuggingFace |    
-#     +-----------------+    
-#              *             
-#              *             
-#              *             
-#     +-----------------+    
-#     | StrOutputParser |    
-#     +-----------------+    
-#              *             
-#              *             
-#              *             
-# +-----------------------+  
-# | StrOutputParserOutput |  
-# +-----------------------+  
+    
