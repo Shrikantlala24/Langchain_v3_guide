@@ -178,3 +178,42 @@ Here is a three-line summary of the report:
     | StrOutputParserOutput |  
     +-----------------------+  
    ```
+---
+
+   content='"Thank you so much for taking the time to share your positive feedback with us! We\'re thrilled to hear that you\'re enjoying our product and appreciate the kind words. Your support means the world to us, and we\'re glad you\'re getting value from using our service. Keep exploring and making the most of it – we\'re always working to improve and provide the best experience for you!"' additional_kwargs={} response_metadata={'token_usage': {'completion_tokens': 79, 'prompt_tokens': 65, 'total_tokens': 144}, 'model_name': 'meta-llama/Llama-3.1-8B-Instruct', 'system_fingerprint': 'fp_f613d2b18eccee549c5f', 'finish_reason': 'stop', 'logprobs': None} id='lc_run--019e590b-d6ee-76c0-8b6d-8a337cf5758e-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 65, 'output_tokens': 79, 'total_tokens': 144}
+
+   ```
+      +-------------+      
+      | PromptInput |      
+      +-------------+      
+             *             
+             *             
+             *             
+    +----------------+     
+    | PromptTemplate |     
+    +----------------+     
+             *             
+             *             
+             *             
++------------------------+ 
+| ChatGoogleGenerativeAI | 
++------------------------+ 
+             *             
+             *             
+             *             
+ +----------------------+  
+ | PydanticOutputParser |  
+ +----------------------+  
+             *             
+             *             
+             *             
+        +--------+         
+        | Branch |         
+        +--------+         
+             *             
+             *             
+             *             
+     +--------------+      
+     | BranchOutput |      
+     +--------------+      
+```
